@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+  --black: #212121;
+  --white: #efefef;
+  --pearl: #fff;
+  --purple: #e8d1f6;
+  --blue: #29639c;
+  --green: #00BCD4;
+  --pink: #b73b3b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #1A191D;
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  height: 100%;
+}
+
+::selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+::-moz-selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.hero-title {
+  font-size: 8vw;
+  line-height: 1em;
+  font-weight: 900;
+}
+
+.nav-title {
+  font-size: 4em;
+}
+
+a {
+  transition: all .25s ease-in-out;
+}
+
+.white, a.white {
+  color: var(--white);
+}
+
+.black {
+  color: var(--black);
+}
+
+.pearl, a.pearl {
+  color: var(--pearl);
+}
+
+.green, a.green {
+  color: var(--green);
+}
+
+.pink {
+  color: var(--pink);
+}
+
+.blend {
+  mix-blend-mode: difference !important;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-topographic {
+  background-image: url('https://assets.codepen.io/319606/bg-topographic.svg');
+  background-size: 5000px;
+  opacity: .1;
+  pointer-events: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--green);
+  transition: transform 350ms ease;
+  transform: translate(-50%, -50%) scale(.3);
+  z-index: 1000;
+}
+
+.custom-cursor--link {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.swoosh {
+  background-image: url('https://assets.codepen.io/319606/2023-logo-swoosh.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 20px;
+  left: 18px;
+  width: 230px;
+  height: 45px;
+  z-index: 1000;
+  background-position: left;
+}
+
+.sticky-nav {
+  top: 20px;
+  left: 20px;
+  position: fixed;
+  width: calc(100% - 40px);
+  z-index: 999;
+}
+
+.sticky-nav.difference {
+  background-repeat: no-repeat;
+  background-size: contain;
+  mix-blend-mode: difference;
+}
+
+.sticky-nav .logo {
+  width: 220px;
+  height: 45px;
+  background-image: url('https://assets.codepen.io/319606/2023-logo-white.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: 998;
+}
+
+#nav-btn {
+  width: 60px;
+  z-index: 999;
+}
+
+#nav-btn .icon {
+  position: relative;
+  width: 100%; 
+  height: 100%;
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--white);
+}
+
+#takeover-nav {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  left: 0;
+  top: -200%;
+  transition: all .5s ease-in-out;
+  z-index: 996;
+}
+
+#takeover-nav.shown {
+  top: 0;
+}
+
+.nav-col {
+  min-height: 100vh;
+}
+
+.nav-contact .content {
+  max-width: 700px;
+}
+
+.nav-items {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.contact-items {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.social {
+  font-size: .75em;
+}
+
+.gradient-overlay {
+  bottom: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(33,33,33,0) 0%, #1A191D 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-bottom-right-radius: 15vw;
+  pointer-events: none;
+}
+
+#video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  transform: rotate(180deg);
+}
+
+section {
+  min-height: 800px;
+  height: 800px;
+  width: 100%;
+}
+
+.hero {
+  background-color: var(--black);
+  position: relative;
+}
+/* Media queries and other styles follow similarly, replacing SCSS variables with CSS custom properties */
+
+.about {
+    background-color: #1A191D;
+    color: white;
+}
+
+
+.button-container {
+    position: relative;
+}
+
+.rotating-border-button {
+  width: 12rem;
+  height: 4rem;
+  background-color: #212121; /* Button background */
+  color: black; /* Button text color */
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* Ensures the pseudo-element does not overflow */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.rotating-border-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  z-index: -1; /* Position it behind the button content */
+  background: linear-gradient(45deg, #77FF85, #77FFF7, #FFD700); /* Rotating gradient border */
+  background-size: 400% 400%;
+  animation: rotating-border 5s linear infinite;
+  padding: 2px; /* Adjust padding to create the effect of a border */
+  margin: -2px; /* Offset the padding to align with the button's border */
+}
+
+.rotating-border-button:hover {
+  background-color: white; /* Hover background color */
+  color: #212121; /* Hover text color */
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover for a "lifted" effect */
+}
+
+@keyframes rotating-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.social{
+  transition: all .25s ease-in-out;
+  transform: translateY(65px);
+}
+
+.social:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  transform: translateY(60px);
+}
+  
+  /* Rotating Avatar----------------------------------------------------------- */
+ 
+
+  
+  .circle {
+    border: 3px dashed rgb(194, 194, 194);
+    margin: auto;
+    position: relative;
+    width: 100%; /* Use percentage width for responsiveness */
+    max-width: 350px; /* Set a maximum width for larger screens */
+    height: auto; /* Allow the height to adjust proportionally */
+    border-radius: 50%;
+    overflow: visible;
+}
+
+  .circle:hover .word {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #77FF85;
+  }
+  
+/* ... Your existing CSS ... */
+
+.word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-120rem, -120rem) rotate(0deg) translate(150px) rotate(0deg);
+    white-space: nowrap;
+    animation-name: rotate;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* ... Rest of your existing CSS ... */
+
+
+  .word:hover {
+    cursor: pointer;
+    color: white;
+    
+  }
+  
+  .text:hover .word {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+
+  .word:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .word:nth-child(2) {
+    animation-delay: 1s;
+  }
+  
+  .word:nth-child(3) {
+    animation-delay: 2s;
+  }
+  
+  .word:nth-child(4) {
+    animation-delay: 3s;
+  }
+  
+  .word:nth-child(5) {
+    animation-delay: 4s;
+  }
+  
+  .word:nth-child(6) {
+    animation-delay: 5s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      /* Increase the translate distance here as well, adjust 150px to match the .word class */
+      transform: translate(-60%, -60%) rotate(0deg) translate(160px) rotate(0deg);
+    }
+    100% {
+      /* Make sure this translate distance is the same as the one at 0% to ensure smooth animation */
+      transform: translate(-60%, -60%) rotate(360deg) translate(160px) rotate(-360deg);
+    }
+}
+
+/* For small screens */
+@media (max-width: 480px) {
+  .circle {
+      margin-top: 80px;
+  }
+
+  @keyframes rotate {
+      0% {
+          transform: translate(-50%, -50%) rotate(0deg) translate(100px) rotate(0deg);
+      }
+      100% {
+          transform: translate(-50%, -50%) rotate(360deg) translate(100px) rotate(-360deg);
+      }
+  }
+}
+
+/* Wave ------------------------------------- */
+
+/* // best seen at 1500px or less */
+/*   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; */
+
+.Wave-Animation-Parent {
+  background-color: #1A191D; 
+  margin-top: 20px; 
+  position: relative; 
+  height: 235px; 
+  width: 100%;
+  overflow: hidden; /* Make sure to hide the overflow */
+}
+
+/* Add a pseudo-element to create the gradient */
+.Wave-Animation-Parent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #1A191D 100%);
+  z-index: 3; /* This needs to be above the waves but below the content */
+}
+
+/* Make sure the z-index of .ocean and .wave is lower than .Wave-Animation-Parent::after */
+.ocean {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2; /* Lower than .Wave-Animation-Parent::after */
+}
+
+/* Keep the rest of your wave and animation styles unchanged */
+
+
+.wave {
+  background: url(wave.png) repeat-x;
+  position: absolute;
+  width: 6400px;
+  top: -198px;
+  left: 0;
+  z-index: 2;
+  height: 198px;
+  transform: translate(0, 0, 0);
+  animation: wave 7s ease infinite;
+}
+
+.wave:nth-of-type(2) {
+  border: 0;
+  top: -168px;
+  animation: swell 4s ease infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% { margin-left: 0; }
+  100% { margin-left: -1600px;}
+}
+@keyframes swell {
+  0%, 100% {
+    transform: translate(0, -30px);
+  }
+  50% {
+    transform: translate(0, 5px);
+  }
+}
+
+/* Cards ------------------------------------- */
+.card {
+  border-radius: 20px !important;
+  background-color: #1A191D !important;
+  color: white !important;
+  border: #ffffff solid 3px !important;
+  text-align: left !important;
+}
+
+#card-titles-text1 {
+  /* Adjust the x-offset, y-offset, blur radius, and color values to match the desired effect */
+  text-shadow: 4px 4px 4px #77FF85;
+}
+
+#card-titles-text2 {
+  /* Adjust the x-offset, y-offset, blur radius, and color values to match the desired effect */
+  text-shadow: 4px 4px 4px #FF77E9;
+}
+
+#card-titles-text3 {
+  /* Adjust the x-offset, y-offset, blur radius, and color values to match the desired effect */
+  text-shadow: 4px 4px 4px #77FFF7;
+}
+
+#Html-background-image{
+  transform: translateY(-50px);
+  opacity: 20%;
+}
+
+
+/* Project Showcase ------------------------------------- */
+/* Existing styles ... */
+
+.filter-bar {
+  margin-bottom: 20px;
+}
+
+.btn-filter {
+  background-color: #fff; /* Or any color you want */
+  border: none;
+  color: white !important; /* Or any color you want */
+  box-shadow: none; /* Removes Bootstrap's default shadow */
+  transition: all 0.3s ease;
+}
+
+.btn-filter:hover,
+.btn-filter.active,
+.btn-filter:focus {
+  color: #77FF85 !important; /* Or any color for text on hover */
+  background-color: #333; /* Or any color for background on hover */
+  border: none;
+}
+
+/* Additional styling to make it look like the wanted project */
+.btn-group .btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group .btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+
+.project-showcase {
+  margin-bottom: 20px;
+}
+
+.project-item {
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  display: flex; /* ensures the item can shrink or expand */
+}
+
+.project-item:hover {
+  transform: translateY(-10px); /* Move the project up slightly on hover */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  
+}
+
+.back-col {
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.back-col:hover {
+  border-color: #77FF85 !important; /* Move the project to the left slightly on hover */
+}
+
+/* Additional styles for project titles and descriptions */
+.card-title,
+.card-text {
+    text-decoration: none; /* Removes underlining from text */
+}
+
+/* If your titles and descriptions are wrapped in <a> tags, target them specifically */
+a.card-link,
+a.card-link .card-title,
+a.card-link .card-text {
+    text-decoration: none; /* Removes underlining from links */
+    color: inherit; /* Optional: ensures the text color matches the rest of the card */
+}
+
+.card {
+  overflow: hidden; /* Ensures that content does not overflow during the transform */
+}
+
+/* footer ------------------------------------- */
+.footer {
+  background-color: #333; /* Dark background */
+  border-radius: 20px;
+}
+
+.footer h5, .footer .blockquote-footer {
+  color: #fff;
+}
+
+.email-highlight {
+  font-size: 1.5em; /* Bigger font size for email */
+  color: #29abe2; /* Highlight color for email */
+  animation: highlight-animation 2s infinite;
+}
+
+@keyframes highlight-animation {
+  0%, 100% {
+      color: #77FF85;
+  }
+  30% {
+    color:#77FFF7;
+  }
+  70% {
+      color: #fff;
+  }
+}
+
+.social-links a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #77FF85 !important;
+}
+
+.testimonial {
+  background: #444; /* Slightly lighter background for testimonials */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #77FF85; /* Color for the testimonial quote line */
+}
+
+.testimonial .blockquote {
+  border: none;
+  font-style: italic;
+}
+
+/*scroll bar ------------------------------------- */
+/* This will style the main scrollbar for the whole page */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #212121; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners on the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered or clicked */
+}
+
+
+/*nav bar ------------------------------------- */
+
+/* Style for navigation bar */
+/* Style for navigation bar */
+#mainNavbar {
+  background: transparent; /* Make the navbar background transparent */
+  border-bottom: none; /* Remove border if not needed */
+}
+
+#mainNavbar .container-fluid {
+  background-color: rgba(50, 50, 50, 0.6); /* Dark grey with transparency */
+  border-radius: 25px; /* Rounded edges */
+  padding: 0.5rem 1rem; /* Padding inside the container */
+  width: auto; /* Width of the middle section, auto will fit content */
+  display: inline-block; /* Allows the width to fit content */
+}
+
+#mainNavbar .navbar-nav .nav-link {
+  color: white;
+  margin: 0 15px;
+}
+
+#mainNavbar .navbar-nav .nav-link:hover {
+  color: #ccc;
+}
+
+/* Fixed top and disappears on scroll down */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  #mainNavbar .container-fluid {
+    width: 100%; /* Full width on smaller screens */
+    border-radius: 0; /* No rounded edges on smaller screens */
+    padding: 0.5rem;
+  }
+
+  #mainNavbar .navbar-nav {
+    flex-direction: row;
+    justify-content: center; /* Center items on smaller screens */
+  }
+}
+
+/*mobile nav ------------------------------------- */
+@media (max-width: 991px) {
+  #mobileNavbar {
+    background: rgba(50, 50, 50, 0.6); /* Dark background with opacity */
+  }
+
+  #mobileNavbar .navbar-toggler {
+    border: none;
+  }
+
+  #mobileNavbar .navbar-collapse {
+    background: rgba(50, 50, 50, 0.6); /* Consistent with the navbar background */
+    margin-top: 0.5rem; /* Space between toggler and collapsed content */
+  }
+
+  #mobileNavbar .navbar-nav {
+    width: 100%; /* Full width nav items */
+  }
+
+  #mobileNavbar .navbar-nav .nav-item .nav-link {
+    color: white; /* Light text for visibility */
+    padding: 0.75rem 1rem; /* Larger tap area for links */
+  }
+}
+
+@media (min-width: 992px) {
+  #mobileNavbar {
+    display: none; /* Hide the mobile navigation bar on larger screens */
+  }
+}
+
+#About {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.project-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#Contact {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}

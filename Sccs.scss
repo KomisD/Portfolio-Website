@@ -1,0 +1,168 @@
+// Increase animation delay. The higher the number is, the slower the animation is
+$speed: 10;
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.animated-title { 
+  color: white;
+  font-size: 48px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  animation: textGlitch 3s ease-in-out infinite alternate;
+}
+
+.animated-title {
+  span {
+    display: inline-block;
+    min-width: 1rem;
+  }
+  
+  .animate {
+    @for $i from 1 through 100 {
+      &:nth-child(3n+#{$i}){
+        span {
+          opacity: 0;
+          transform: translateY(2px);
+          animation: displayLetter .5s ease-in-out .5s forwards alternate;
+          letter-spacing: 1px;
+
+          @for $i from 1 through 100 {
+            &:nth-child(3n+#{$i}){
+              animation-delay: (random($speed) / 10) * 1s
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.animated-word {
+  opacity: 0;
+}
+
+@keyframes displayLetter {
+	0% {
+    transform: translateY(2px);
+    color: white;
+    opacity: 0;
+	}
+  10% {
+    opacity: 1;
+    color: limegreen;
+  }
+  20% {
+    opacity: 0;
+    color: white;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    color: darkgreen;
+    transform: translateY(1px);
+  }
+  60% {
+    opacity: 1;
+    color: white;
+    transform: translateY(1px);
+  }
+	100% {
+    transform: translateY(0);
+    color: white;
+    opacity: 1;
+	}
+}
+
+@keyframes textGlitch {
+  0% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+	95% {
+    opacity: 0.1;
+  }
+  96% {
+    opacity: 1;
+    transform: translateX(1px);
+  }
+  97% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+
+
+.bg-dark {
+  background-color: #1A191D;
+}
+
+.btn-custom {
+  background-color: #00857C;
+  color: white;
+  border-color: #00857C;
+}
+
+.skill-circle {
+  border: 3px dashed #C2C2C2;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  position: relative;
+}
+
+.skills-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill {
+  position: absolute;
+  white-space: nowrap;
+  color: #77FF85;
+  font-weight: bold;
+  animation: rotate 6s linear infinite;
+}
+
+.skill:hover {
+  color: white;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translate(110px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translate(110px) rotate(-360deg);
+  }
+}
+
+/* Adjust the starting position of each skill word */
+.skill:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) translate(110px) rotate(0deg); }
+.skill:nth-child(2) { transform: translate(-50%, -50%) rotate(60deg) translate(110px) rotate(-60deg); }
+.skill:nth-child(3) { transform: translate(-50%, -50%) rotate(120deg) translate(110px) rotate(-120deg); }
+.skill:nth-child(4) { transform: translate(-50%, -50%) rotate(180deg) translate(110px) rotate(-180deg); }
+.skill:nth-child(5) { transform: translate(-50%, -50%) rotate(240deg) translate(110px) rotate(-240deg); }
+.skill:nth-child(6) { transform: translate(-50%, -50%) rotate(300deg) translate(110px) rotate(-300deg); }
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  #about-section {
+    min-height: 90vh;
+  }
+}

@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
         entry.target.style.transform = 'translateX(0)';
       }
     });
@@ -122,6 +121,23 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(aboutSection);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutSection = document.querySelector(".about");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateX(0)";
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(aboutSection);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const expertiseCards = document.querySelectorAll('.card');

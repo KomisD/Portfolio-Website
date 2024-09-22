@@ -921,6 +921,12 @@ a.card-link .card-text {
 .timeline__title {
 	font-size: 1.5em;
 	line-height: 1.333;
+  transition: 0.3s ease-in-out color;
+}
+
+.title-active {
+	color: #7bba07;
+  transition: 0.3s ease-in-out color;
 }
 /* Expanded state */
 .timeline__item-body--expanded {

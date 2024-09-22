@@ -204,6 +204,7 @@ class CollapsibleTimeline {
 
 	animateItemAction(button, ctrld, contentHeight, shouldCollapse) {
 		const expandedClass = "timeline__item-body--expanded";
+		const title = button.closest('.timeline__item-header').querySelector('.timeline__title'); // Select title
 		const animOptions = {
 			duration: 300,
 			easing: "cubic-bezier(0.65, 0, 0.35, 1)"
@@ -213,6 +214,7 @@ class CollapsibleTimeline {
 			button.ariaExpanded = "false";
 			ctrld.ariaHidden = "true";
 			ctrld.classList.remove(expandedClass);
+			title.classList.remove('title-active'); // Remove active class on collapse
 			animOptions.duration *= 2;
 			this.animation = ctrld.animate([
 				{ height: `${contentHeight}px` },
@@ -223,6 +225,7 @@ class CollapsibleTimeline {
 			button.ariaExpanded = "true";
 			ctrld.ariaHidden = "false";
 			ctrld.classList.add(expandedClass);
+			title.classList.add('title-active'); // Add active class on expand
 			this.animation = ctrld.animate([
 				{ height: "0px" },
 				{ height: `${contentHeight}px` }
